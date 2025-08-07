@@ -2,11 +2,13 @@
   margin: 0;
   padding: 0;
   text-align: center;
+  box-sizing: border-box;
 }
+
 body {
   margin: 0;
   padding: 0;
-  height: 100vh;
+  min-height: 100vh;
   background: linear-gradient(-45deg, #ff9a9e, #a18cd1, #84fab0, #8fd3f4);
   background-size: 400% 400%;
   animation: gradientAnimation 15s ease infinite;
@@ -30,55 +32,103 @@ h1 {
   color: white;
   height: 5rem;
   line-height: 5rem;
-}
-.choice {
-  height: 165x;
-  width: 165x;
-  cursor: pointer;
-  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
-  border-radius: 50%;
-}
-img {
-  height: 150px;
-  width: 150px;
-  object-fit: cover;
-  border-radius: 50%;
+  font-size: 2.5rem;
 }
 
 .choices {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 3rem;
-  margin-top: 5rem;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+  padding: 0 1rem;
 }
+
+.choice {
+  height: 140px;
+  width: 140px;
+  cursor: pointer;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
 .choice:hover {
   transform: scale(1.1);
-  transition: transform 0.3s ease;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 .score-board {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2rem;
-  margin-top: 3rem;
-  gap: 5rem;
+  font-size: 1.5rem;
+  margin-top: 2.5rem;
+  gap: 3rem;
+  flex-wrap: wrap;
 }
+
 #user-score,
 #comp-score {
-  font-size: 5rem;
+  font-size: 3.5rem;
 }
 
 .msg-container {
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
+
 #msg {
   background-color: #081b31;
   color: white;
-  font-size: 2rem;
-  margin-top: 5rem;
+  font-size: 1.8rem;
+  margin-top: 2rem;
   display: inline-block;
-  padding: 1rem;
+  padding: 0.8rem 1.5rem;
   border-radius: 1rem;
+  max-width: 90%;
+}
+.footer {
+  margin-top: auto;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+
+  color: grey;
+  padding: 0.1rem;
+  font-size: 1rem;
+}
+/* 🔽 Responsive Design for Small Devices (Phones) */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+    height: 4rem;
+    line-height: 4rem;
+  }
+
+  .choice {
+    height: 100px;
+    width: 100px;
+  }
+
+  .score-board {
+    font-size: 1.2rem;
+    gap: 2rem;
+  }
+
+  #user-score,
+  #comp-score {
+    font-size: 2.5rem;
+  }
+
+  #msg {
+    font-size: 1.5rem;
+    padding: 0.7rem 1.2rem;
+  }
 }
