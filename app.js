@@ -57,7 +57,14 @@ const playGame = (userChoice) => {
 
 choices.forEach((choice) => {
   choice.addEventListener("click", () => {
+    // Add press effect
+    choice.classList.add("active");
+    setTimeout(() => {
+      choice.classList.remove("active");
+    }, 100); // Adjust duration as needed
+
+    // Game logic
     const userChoice = choice.getAttribute("id");
-    playGame(userChoice); // FIXED: pass userChoice as argument
+    playGame(userChoice);
   });
 });
