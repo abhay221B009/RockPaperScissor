@@ -2,6 +2,7 @@ let userScore = 0;
 let compScore = 0;
 
 const choices = document.querySelectorAll(".choice");
+const msg = document.querySelector("#msg");
 
 const genCompChoice = () => {
   const options = ["rock", "paper", "scissor"];
@@ -11,6 +12,17 @@ const genCompChoice = () => {
 
 const drawGame = () => {
   console.log("It's a draw!");
+  msg.innerText = "It's a draw!";
+};
+
+const showWinner = (userWins) => {
+  if (userWins) {
+    console.log("You win!");
+    msg.innerText = "You win!";
+  } else {
+    console.log("Computer wins!");
+    msg.innerText = "You loose!";
+  }
 };
 
 const playGame = (userChoice) => {
@@ -30,9 +42,9 @@ const playGame = (userChoice) => {
     } else if (userChoice === "scissors") {
       userWins = compChoice === "rock" ? false : true;
     }
+    showWinner(userWins);
   }
 };
-// ✅ fixed: added missing closing brace for playGame function
 
 choices.forEach((choice) => {
   choice.addEventListener("click", () => {
